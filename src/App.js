@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Button, Container, Input, Paper } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from './styles/Styles';
+import MyButton from './styles/MyButton';
+import { RoundedButton } from './styles/MyButton';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeProvider theme={theme}>
+      <Container
+        sx={{
+          maxWidth: "400px",
+        }}
+      >
+        <Paper
+          sx={{
+            marginTop: "2rem",
+            padding: "1rem",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Input fullWidth placeholder="First Name" />
+          <Input fullWidth placeholder="Last Name" />
+          <Input fullWidth placeholder="Email" />
+          <Input fullWidth placeholder="Website" />
+          <Button
+            sx={{
+              marginTop: "2px",
+            }}
+            variant="contained"
+          >
+            Submit
+          </Button>
+          <RoundedButton
+            color="secondary"
+            sx={{
+              marginTop: "2px",
+            }}
+            variant="contained"
+          >
+            Cancel
+          </RoundedButton>
+        </Paper>
+      </Container>
+    </ThemeProvider>
   );
 }
 
